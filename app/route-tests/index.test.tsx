@@ -2,7 +2,7 @@ import { it, expect, describe } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import { createRemixStub } from "@remix-run/testing";
 
-import Index, { IndexLoaderData } from "~/routes/_index";
+import Index, { IndexLoaderData, loader } from "~/routes/_index";
 
 const renderComponent = (loaderData: IndexLoaderData = {}): void => {
   const ComponentWithRemixStub = createRemixStub([
@@ -18,7 +18,7 @@ const renderComponent = (loaderData: IndexLoaderData = {}): void => {
   render(<ComponentWithRemixStub />);
 };
 
-describe("Index Route", () => {
+describe("Index Route Component", () => {
   it("renders the header", async () => {
     renderComponent();
 
@@ -86,5 +86,19 @@ describe("Index Route", () => {
         JSON.stringify(testLoaderData)
       );
     });
+  });
+});
+
+const getLoaderData = (): IndexLoaderData => {
+  return loader({
+    request: new Request("http://example.com"),
+    params: {},
+    context: {},
+  }) as IndexLoaderData;
+};
+
+describe("Index Route Loader", () => {
+  it("returns test data", async () => {
+    expect(getLoaderData()).toEqual({ foo: "bar" });
   });
 });
