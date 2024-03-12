@@ -1,0 +1,5 @@
+
+DROP DATABASE IF EXISTS react_pratice_2024;
+DROP USER IF EXISTS admin;
+CREATE DATABASE react_pratice_2024;
+CREATE USER admin SUPERUSER PASSWORD 'development';

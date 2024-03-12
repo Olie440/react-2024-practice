@@ -132,3 +132,7 @@ dist
 # Remix Dev Server
 /public/build
 build
+.env*
+.flaskenv*
+!.env.project
+!.env.vault

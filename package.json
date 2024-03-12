@@ -9,12 +9,14 @@
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/index.js",
     "typecheck": "tsc",
-    "test": "vitest"
+    "test": "vitest",
+    "dev:db:create": "psql postgres < create-dev-db.sql && prisma migrate deploy"
   },
   "dependencies": {
     "@conform-to/react": "^1.0.2",
     "@conform-to/zod": "^1.0.2",
     "@emotion/styled": "^11.11.0",
+    "@prisma/client": "5.11.0",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/themes": "^2.0.3",
     "@remix-run/css-bundle": "^2.8.0",
@@ -23,6 +25,7 @@
     "@remix-run/serve": "^2.8.0",
     "@remix-run/testing": "^2.8.0",
     "@types/node": "^20.11.24",
+    "dotenv": "^16.4.5",
     "isbot": "^4.1.0",
     "jotai": "^2.7.0",
     "react": "^18.2.0",
@@ -49,8 +52,10 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "jsdom": "^24.0.0",
+    "prisma": "5.11.0",
     "typescript": "^5.1.6",
-    "vitest": "^1.3.1"
+    "vitest": "^1.3.1",
+    "vitest-mock-extended": "^1.3.1"
   },
   "engines": {
     "node": ">=18.0.0"
