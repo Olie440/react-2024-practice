@@ -10,7 +10,9 @@
     "start": "remix-serve ./build/index.js",
     "typecheck": "tsc",
     "test": "vitest",
-    "dev:db:create": "psql postgres < create-dev-db.sql && prisma migrate deploy"
+    "db:dev:create": "psql postgres < create-dev-db.sql && prisma migrate deploy",
+    "db:migration:create": "prisma migrate dev",
+    "db:migration:reset": "git clean -df prisma/migrations && prisma migrate reset"
   },
   "dependencies": {
     "@conform-to/react": "^1.0.2",
@@ -33,6 +35,7 @@
     "react-query": "^3.39.3",
     "react-use": "^17.5.0",
     "remix-auth": "^3.6.0",
+    "remix-auth-form": "^1.4.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {

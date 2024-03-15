@@ -3,7 +3,7 @@ import { mockDeep } from "vitest-mock-extended";
 
 import "@testing-library/jest-dom/vitest";
 
-vi.mock("~/db.server", () => {
+vi.mock("~/services/db.server", () => {
   return {
     __esModule: true,
     prisma: mockDeep(),

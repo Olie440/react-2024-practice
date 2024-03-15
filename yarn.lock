@@ -6535,6 +6535,11 @@ remark-rehype@^10.0.0:
     mdast-util-to-hast "^12.1.0"
     unified "^10.0.0"
 
+remix-auth-form@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/remix-auth-form/-/remix-auth-form-1.4.0.tgz#77a16fef27fa6a795a63891022aaf9f72fd2e6e5"
+  integrity sha512-PirsVtv2AbJ7Lg+OjE+rjlW9AnkNYmqfmNIqTg0Mh1wur22ls5hxf2icVXVCRRhpcpV+FyoDxh03LtIyRj646A==
+
 remix-auth@^3.6.0:
   version "3.6.0"
   resolved "https://registry.npmjs.org/remix-auth/-/remix-auth-3.6.0.tgz"

@@ -1,6 +1,8 @@
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import styled from "@emotion/styled";
 import { useLoaderData } from "@remix-run/react";
+import { useAtom, useAtomValue } from "jotai";
+import { userAtom } from "~/atoms";
 
 export const meta: MetaFunction = () => {
   return [
@@ -13,7 +15,7 @@ export interface IndexLoaderData {
   foo?: string;
 }
 
-export const loader: LoaderFunction = (): IndexLoaderData => {
+export const loader: LoaderFunction = async ({ request }): IndexLoaderData => {
   return {
     foo: "bar",
   };
@@ -21,6 +23,7 @@ export const loader: LoaderFunction = (): IndexLoaderData => {
 
 export default function Index() {
   const loaderData = useLoaderData<IndexLoaderData>();
+  const user = useAtomValue(userAtom);
 
   return (
     <Container>
@@ -54,6 +57,11 @@ export default function Index() {
       <section>
         <h2>Loader Data:</h2>
         <p data-testid="loader-data">{JSON.stringify(loaderData)}</p>
+      </section>
+
+      <section>
+        <h2>User Data:</h2>
+        <p data-testid="loader-data">{JSON.stringify({ user })}</p>
       </section>
     </Container>
   );
